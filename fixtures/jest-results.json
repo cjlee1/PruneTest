@@ -1,0 +1,20 @@
+{
+  "numFailedTestSuites": 1,
+  "numPassedTestSuites": 1,
+  "numTotalTestSuites": 2,
+  "numFailedTests": 1,
+  "numPassedTests": 3,
+  "success": false,
+  "testResults": [
+    {
+      "testFilePath": "/github/workspace/src/__tests__/auth.test.ts",
+      "status": "failed",
+      "numFailingTests": 1
+    },
+    {
+      "testFilePath": "/github/workspace/src/__tests__/utils.test.ts",
+      "status": "passed",
+      "numFailingTests": 0
+    }
+  ]
+}
