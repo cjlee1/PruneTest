@@ -1,6 +1,6 @@
-name: 'Semantic Test Selector'
+name: 'Skippr'
 description: 'ML-backed CI test selection — run only the tests that matter for your diff'
-author: 'semantic-test-selector'
+author: 'Calvin Lee'
 
 inputs:
   api-key:

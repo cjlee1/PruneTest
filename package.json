@@ -1,7 +1,7 @@
 {
-  "name": "semantic-test-selector",
+  "name": "skippr",
   "version": "0.1.0",
-  "description": "Semantic test selector — ML-backed CI test selection",
+  "description": "Skippr — ML-backed CI test selection",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "typecheck": "tsc --noEmit",
