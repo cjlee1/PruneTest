@@ -1,0 +1,52 @@
+name: 'Semantic Test Selector'
+description: 'ML-backed CI test selection — run only the tests that matter for your diff'
+author: 'semantic-test-selector'
+
+inputs:
+  api-key:
+    description: 'Anthropic or OpenAI API key (for LLM layer)'
+    required: true
+  mode:
+    description: 'shadow | conservative | standard | aggressive'
+    required: false
+    default: 'shadow'
+  test-dir:
+    description: 'Path to test directory'
+    required: false
+    default: '__tests__'
+  config-file:
+    description: 'Path to .testselector.yml'
+    required: false
+    default: '.testselector.yml'
+  project-token:
+    description: 'Project token from dashboard (enables history and ML layer)'
+    required: false
+  test-results-file:
+    description: 'Path to a JUnit/JSON test results file for historical learning'
+    required: false
+  github-token:
+    description: 'GitHub token for posting PR comments (requires pull-requests: write)'
+    required: false
+    default: ${{ github.token }}
+
+outputs:
+  blocking-tests:
+    description: 'JSON array - run and block merge on failure'
+  recommended-tests:
+    description: 'JSON array - run but non-blocking'
+  skip-tests:
+    description: 'JSON array - skip this run'
+  selection-confidence:
+    description: 'Float 0-1: system confidence in this selection'
+  reasoning:
+    description: 'Plain text explanation of top decisions'
+  estimated-time-saved:
+    description: 'Estimated minutes saved vs running full suite'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'zap'
+  color: 'blue'

@@ -1,0 +1,46 @@
+
+# ── GSD baseline (auto-generated) ──
+.gsd
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+dist/*
+!dist/index.js
+!dist/licenses.txt
+build/
+__pycache__/
+*.pyc
+.venv/
+venv/
+target/
+vendor/
+*.log
+*.tsbuildinfo
+coverage/
+.cache/
+tmp/
+# onnx runtime binaries
+bin/
+*.node
+*.dylib
+*.so
+*.so.1
+*.dll
+
+# generated
+dist/*.map
+dist/sourcemap-register.js
+
+# local state
+.testselector/
+.bg-shell/
