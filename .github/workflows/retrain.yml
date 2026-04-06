@@ -1,0 +1,34 @@
+name: Retrain GBDT Model
+
+on:
+  schedule:
+    - cron: '0 2 * * 0'  # Sunday 02:00 UTC
+  workflow_dispatch:       # Allow manual trigger for testing
+
+permissions:
+  contents: write
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install scikit-learn skl2onnx onnx numpy
+
+      - name: Retrain GBDT model
+        run: python scripts/train.py --data fixtures/runs.jsonl --output models/gbdt.onnx
+
+      - name: Commit updated model
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: retrain GBDT model [skip ci]'
+          file_pattern: 'models/gbdt.onnx'
