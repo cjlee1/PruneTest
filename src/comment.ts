@@ -10,7 +10,7 @@ import { context, getOctokit } from '@actions/github'
 
 /** Fallback comment returned when generateComment() encounters any error. */
 const FALLBACK_COMMENT =
-  '## 🧪 Skippr\n\nAnalysis unavailable — running full test suite.'
+  '## 🧪 PruneTest\n\nAnalysis unavailable — running full test suite.'
 
 /**
  * Generate a PRD-formatted Markdown comment summarising the selection result.
@@ -32,8 +32,8 @@ export function generateComment(
   try {
     const isShadow = selection.mode === 'shadow'
     const header = isShadow
-      ? '## 🧪 Skippr — Shadow Mode'
-      : '## 🧪 Skippr — Selection Mode'
+      ? '## 🧪 PruneTest — Shadow Mode'
+      : '## 🧪 PruneTest — Selection Mode'
     const verb = isShadow ? 'would run' : 'Running'
 
     const total = selection.blocking.length + selection.recommended.length + selection.skip.length

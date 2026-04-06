@@ -1,7 +1,7 @@
 {
-  "name": "skippr",
+  "name": "prunetest",
   "version": "0.1.0",
-  "description": "Skippr — ML-backed CI test selection",
+  "description": "PruneTest — ML-backed CI test selection",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "typecheck": "tsc --noEmit",

@@ -112,7 +112,7 @@ export function mergeLayers(
   // ── 7. PR comment placeholder ─────────────────────────────────────────────
   // Real formatting lands when L4's reasoning strings are wired in later milestones.
   const prComment = [
-    `[skippr] mode=${mode}`,
+    `[PruneTest] mode=${mode}`,
     `blocking=${blocking.length}`,
     `recommended=${recommended.length}`,
     `skip=${skip.length}`,

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Skippr Dashboard',
-  description: 'Dashboard for Skippr — ML-backed CI test selection',
+  title: 'PruneTest Dashboard',
+  description: 'Dashboard for PruneTest — ML-backed CI test selection',
 }
 
 export default function RootLayout({

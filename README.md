@@ -1,6 +1,6 @@
-# Skippr
+# PruneTest
 
-[![CI](https://github.com/cjlee1/Skippr/actions/workflows/ci.yml/badge.svg)](https://github.com/cjlee1/Skippr/actions/workflows/ci.yml)
+[![CI](https://github.com/cjlee1/PruneTest/actions/workflows/ci.yml/badge.svg)](https://github.com/cjlee1/PruneTest/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ML-backed CI test selection — run only the tests that matter for your diff.
@@ -28,7 +28,7 @@ All layers are fail-open: any layer failure produces a warning and falls through
 # .github/workflows/test.yml
 - name: Select tests
   id: selector
-  uses: cjlee1/Skippr@main
+  uses: cjlee1/PruneTest@main
   with:
     api-key: ${{ secrets.ANTHROPIC_API_KEY }}
     mode: shadow            # start in shadow — observe before skipping
@@ -122,7 +122,7 @@ blocking-tests / skip-tests / recommended-tests
 
 ## Enterprise
 
-Running this at scale — 1 000+ repos, SOC 2 requirements, custom model training? See [enterprise inquiry →](https://github.com/cjlee1/Skippr) or email [calvinlee@cjlee.ca](mailto:calvinlee@cjlee.ca).
+Running this at scale — 1 000+ repos, SOC 2 requirements, custom model training? See [enterprise inquiry →](https://github.com/cjlee1/PruneTest) or email [calvinlee@cjlee.ca](mailto:calvinlee@cjlee.ca).
 
 ---
 

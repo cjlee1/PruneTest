@@ -105,7 +105,7 @@ const MOCK_SELECTION: FinalSelection = {
   skip: [],
   mode: 'shadow',
   overall_confidence: 0.75,
-  pr_comment: '[skippr] mode=shadow | blocking=1 | recommended=1 | skip=0 | confidence=0.75',
+  pr_comment: '[PruneTest] mode=shadow | blocking=1 | recommended=1 | skip=0 | confidence=0.75',
   total_cost_usd: 0.001,
   estimated_time_saved_minutes: 0,
 }

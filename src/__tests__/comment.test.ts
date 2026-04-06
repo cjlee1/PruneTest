@@ -190,7 +190,7 @@ describe('generateComment — fail-open', () => {
       null as unknown as SelectorConfig,
     )
     expect(result).toBe(
-      '## 🧪 Skippr\n\nAnalysis unavailable — running full test suite.',
+      '## 🧪 PruneTest\n\nAnalysis unavailable — running full test suite.',
     )
   })
 })

@@ -1,5 +1,5 @@
 // src/main.ts
-// Entrypoint for the Skippr GitHub Action.
+// Entrypoint for the PruneTest GitHub Action.
 //
 // Iron rule: fail-open always. Any unhandled error → log via core.warning(),
 // set safe placeholder outputs, and exit 0. Never call process.exit(1).
@@ -48,7 +48,7 @@ export async function run(): Promise<void> {
       config.mode = modeOverride as typeof config.mode
     }
 
-    core.info(`[skippr] Loaded config from '${configFile}'. Mode: ${config.mode}`)
+    core.info(`[PruneTest] Loaded config from '${configFile}'. Mode: ${config.mode}`)
 
     // --- Shadow mode: load run history ---
     const workspace = process.env.GITHUB_WORKSPACE ?? process.cwd()
@@ -58,7 +58,7 @@ export async function run(): Promise<void> {
     try {
       runHistory = loadRunRecords(runHistoryFile)
     } catch (e) {
-      console.warn('[skippr] Failed to load run history:', e)
+      console.warn('[PruneTest] Failed to load run history:', e)
     }
 
     const flakeScores = computeFlakeScores(runHistory)
@@ -70,20 +70,20 @@ export async function run(): Promise<void> {
       try {
         actualFailures = parseJestJson(testResultsFile)
       } catch (e) {
-        console.warn('[skippr] Failed to parse test results:', e)
+        console.warn('[PruneTest] Failed to parse test results:', e)
       }
     }
 
     // --- Shadow mode: accuracy floor check (uses historical data BEFORE current run) ---
     if (checkAccuracyFloor(runHistory)) {
-      core.warning('[skippr] Accuracy floor triggered — reverting to shadow mode')
+      core.warning('[PruneTest] Accuracy floor triggered — reverting to shadow mode')
       config.mode = 'shadow'
     }
 
     // --- Shadow mode: backstop check ---
     if (checkBackstop(runHistory.length, config.fullSuiteEvery)) {
       core.info(
-        `[skippr] Backstop triggered at run #${runHistory.length} — forcing full suite`,
+        `[PruneTest] Backstop triggered at run #${runHistory.length} — forcing full suite`,
       )
     }
 
@@ -108,7 +108,7 @@ export async function run(): Promise<void> {
     )
 
     core.info(
-      `[skippr] Selection complete. blocking=${selection.blocking.length} recommended=${selection.recommended.length} skip=${selection.skip.length}`,
+      `[PruneTest] Selection complete. blocking=${selection.blocking.length} recommended=${selection.recommended.length} skip=${selection.skip.length}`,
     )
 
     // Build per-test reasoning map from Layer 4 decisions
@@ -123,7 +123,7 @@ export async function run(): Promise<void> {
       try {
         await postPRComment(githubToken, commentBody)
       } catch (e) {
-        console.warn('[skippr] Failed to post PR comment:', e)
+        console.warn('[PruneTest] Failed to post PR comment:', e)
       }
     }
 
@@ -159,18 +159,18 @@ export async function run(): Promise<void> {
       appendRunRecord(runHistoryFile, newRecord)
       await commitRunRecords(workspace, runHistoryFile)
     } catch (e) {
-      console.warn('[skippr] Failed to persist run record:', e)
+      console.warn('[PruneTest] Failed to persist run record:', e)
     }
 
     // --- Shadow mode: accuracy report ---
     const updatedHistory = [...runHistory, newRecord]
     if (updatedHistory.length >= 10) {
-      core.info(`[skippr] ${generateAccuracyReport(updatedHistory)}`)
+      core.info(`[PruneTest] ${generateAccuracyReport(updatedHistory)}`)
     }
   } catch (err) {
     // Fail-open: log the error but do not fail the action.
     core.warning(
-      `[skippr] Unhandled error in main entrypoint: ${String(err)}. Continuing with full suite.`,
+      `[PruneTest] Unhandled error in main entrypoint: ${String(err)}. Continuing with full suite.`,
     )
 
     // Set safe defaults so downstream steps don't fail on missing outputs

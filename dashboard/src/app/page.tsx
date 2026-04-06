@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <main style={{ fontFamily: 'sans-serif', padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
       <h1 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-        Skippr
+        PruneTest
       </h1>
       <p style={{ color: '#6b7280', marginBottom: '2rem', lineHeight: 1.6 }}>
         An open-source CI tool that uses semantic analysis and ML to skip tests that
@@ -11,7 +11,7 @@ export default function Home() {
 
       <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
         <a
-          href="https://github.com/cjlee1/Skippr"
+          href="https://github.com/cjlee1/PruneTest"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -27,7 +27,7 @@ export default function Home() {
           ★ Star on GitHub
         </a>
         <a
-          href="https://github.com/cjlee1/Skippr"
+          href="https://github.com/cjlee1/PruneTest"
           style={{
             display: 'inline-block',
             backgroundColor: '#6366f1',

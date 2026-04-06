@@ -14,8 +14,8 @@ Thanks for your interest. This is an open-source project and contributions are w
 ## Setup
 
 ```bash
-git clone https://github.com/cjlee1/Skippr.git
-cd Skippr
+git clone https://github.com/cjlee1/PruneTest.git
+cd PruneTest
 cp .env.example .env   # fill in ANTHROPIC_API_KEY and VOYAGE_API_KEY at minimum
 npm install
 npm run typecheck

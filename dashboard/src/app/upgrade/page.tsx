@@ -5,7 +5,7 @@ export default function UpgradePage() {
         Open Source — Free Forever
       </h1>
       <p style={{ color: '#6b7280', marginBottom: '2rem', lineHeight: 1.6 }}>
-        Skippr is free and open-source under the MIT licence.
+        PruneTest is free and open-source under the MIT licence.
         Self-host it, fork it, and contribute back.
       </p>
 
@@ -66,7 +66,7 @@ export default function UpgradePage() {
             <li>SSO / audit logs</li>
           </ul>
           <a
-            href="https://github.com/cjlee1/Skippr"
+            href="https://github.com/cjlee1/PruneTest"
             style={{
               display: 'inline-block',
               backgroundColor: '#6366f1',

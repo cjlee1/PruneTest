@@ -147,12 +147,12 @@ export default async function TokenPage({ params }: PageProps) {
       <p style={{ fontSize: '0.8rem', color: '#9ca3af' }}>
         Powered by{' '}
         <a
-          href="https://github.com/cjlee1/Skippr"
+          href="https://github.com/cjlee1/PruneTest"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: '#6366f1' }}
         >
-          Skippr
+          PruneTest
         </a>{' '}
         — open source, MIT licence.{' '}
         <a href="https://github.com/sponsors/cjlee1" target="_blank" rel="noopener noreferrer" style={{ color: '#db2777' }}>

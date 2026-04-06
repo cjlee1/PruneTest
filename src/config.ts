@@ -44,11 +44,11 @@ export function parseConfig(filePath: string = DEFAULT_CONFIG_PATH): SelectorCon
   } catch (err) {
     if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
       process.stderr.write(
-        `[skippr] Config file not found at '${filePath}'. Using defaults.\n`,
+        `[PruneTest] Config file not found at '${filePath}'. Using defaults.\n`,
       )
     } else {
       process.stderr.write(
-        `[skippr] Could not read config file '${filePath}': ${String(err)}. Using defaults.\n`,
+        `[PruneTest] Could not read config file '${filePath}': ${String(err)}. Using defaults.\n`,
       )
     }
     return { ...DEFAULT_CONFIG, runAllTestsOn: [...DEFAULT_CONFIG.runAllTestsOn] }
@@ -65,7 +65,7 @@ export function parseConfig(filePath: string = DEFAULT_CONFIG_PATH): SelectorCon
     parsed = yaml.load(raw)
   } catch (err) {
     process.stderr.write(
-      `[skippr] Invalid YAML in '${filePath}': ${String(err)}. Using defaults.\n`,
+      `[PruneTest] Invalid YAML in '${filePath}': ${String(err)}. Using defaults.\n`,
     )
     return { ...DEFAULT_CONFIG, runAllTestsOn: [...DEFAULT_CONFIG.runAllTestsOn] }
   }
@@ -73,7 +73,7 @@ export function parseConfig(filePath: string = DEFAULT_CONFIG_PATH): SelectorCon
   // yaml.load of a YAML scalar (e.g. "true", "42") returns a non-object primitive.
   if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
     process.stderr.write(
-      `[skippr] Config file '${filePath}' did not parse to an object. Using defaults.\n`,
+      `[PruneTest] Config file '${filePath}' did not parse to an object. Using defaults.\n`,
     )
     return { ...DEFAULT_CONFIG, runAllTestsOn: [...DEFAULT_CONFIG.runAllTestsOn] }
   }

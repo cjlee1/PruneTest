@@ -44,7 +44,7 @@ describe('UpgradePage', () => {
 
   it('contains enterprise contact link pointing to GitHub repo', () => {
     const json = JSON.stringify(UpgradePage())
-    expect(json).toContain('github.com/cjlee1/Skippr')
+    expect(json).toContain('github.com/cjlee1/PruneTest')
   })
 
   it('contains attribution section', () => {
